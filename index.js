@@ -10,6 +10,11 @@ app.use(express.json());
 app.use('/api', apiRoutes);
 
 
+
+
+
+
+
 mongoose.connect(process.env.MONGO_URI);
 
 whatsappClient.initialize();
