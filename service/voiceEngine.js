@@ -1,17 +1,10 @@
 const say = require('say');
-const readline = require('readline');
+const isRender = process.env.RENDER === 'true';
 
 exports.speak = (text) => {
-  say.speak(text, 'Microsoft Zira Desktop' || null); // Use default TTS voice
-};
-
-exports.listen = (callback) => {
-  const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-  });
-  rl.question('🎤 You: ', (answer) => {
-    rl.close();
-    callback(answer);
-  });
+  if (isRender) {
+    console.log('🗣️ [VOICE DISABLED on Render]:', text);
+  } else {
+    say.speak(text);
+  }
 };
