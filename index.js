@@ -10,6 +10,11 @@ app.use(express.json());
 app.use('/api', apiRoutes);
 
 
+app.get('/ping', (req, res) => {
+  const now = new Date().toLocaleString();
+  console.log(`🔄 Ping received at ${now}`);
+  res.status(200).send('JP is awake 🧠');
+});
 
 
 
